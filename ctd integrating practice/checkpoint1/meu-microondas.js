@@ -28,16 +28,19 @@ function meuMicroOndas(alimento, tempoExtra) {
 
     let msg2
 
-    if ((temporizador > (alimento * 2)) && (msg != 'alimento inexistente')) {
-        msg2 = 'alimento queimou'
+    if ((temporizador > (alimento * 2) && (temporizador < (alimento * 3)) && (msg != 'alimento inexistente'))) {
+        msg2 = 'alimento queimou 🔥'
     }
     else if ((temporizador < alimento) && (msg != 'alimento inexistente')){
-        msg2 = 'tempo insuficiente'
+        msg2 = 'tempo insuficiente ⌚'
+    }
+    else if ((temporizador > (alimento * 3)) && (msg != 'alimento inexistente')){
+        msg2 = 'KABUUUM 💣'
     }
     else if (msg == 'alimento inexistente') {
-        msg2 = 'fim do ciclo! no cardápio principal, tente uma das opções: pipoca, macarrao, carne, feijao, brigadeiro'
+        msg2 = '⏸️ fim do ciclo! no cardápio principal, tente uma das opções: pipoca, macarrao, carne, feijao, brigadeiro'
     }else if (msg != 'alimento inexistente') {
-        msg2 = 'alimento pronto'
+        msg2 = 'alimento pronto, bom apetite 😋'
     }
 
     return msg + " | " + msg2
@@ -51,4 +54,4 @@ function meuMicroOndas(alimento, tempoExtra) {
 // teste com retorno pronto  meuMicroOndas('macarrao', 1)
 // teste com retonro alimento inexistente meuMicroOndas('batatinha', 0)
 
-console.log(meuMicroOndas('', 0))
+console.log(meuMicroOndas('macarrao', 18))
