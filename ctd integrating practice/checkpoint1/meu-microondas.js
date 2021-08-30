@@ -1,57 +1,41 @@
-function meuMicroOndas(alimento, tempoExtra) {
-    let temporizador = 0;
-    let msg;
+function meuMicroOndas(prato, tempoExtra){
+    let padrao = 0;
+    let tempo = 0;
 
-    if(alimento == 'pipoca') {
-        temporizador = 10 + tempoExtra
-        alimento = 10
-        msg = 'pipoca selecionado tempo: ' + temporizador
-    }else if(alimento == 'macarrao'){
-        temporizador = 8 + tempoExtra;
-        alimento = 8
-        msg = 'macarrao selecionado tempo: ' + temporizador
-    }else if(alimento == 'carne') {
-        temporizador = 15 + tempoExtra;
-        alimento = 15
-        msg = 'carne selecionado tempo: ' + temporizador
-    }else if(alimento == 'feijao') {
-        temporizador = 12 + tempoExtra;
-        alimento = 12
-        msg = 'feijao selecionado tempo: ' + temporizador
-    }else if(alimento == 'brigadeiro') {
-        temporizador = 8 + tempoExtra;
-        alimento = 8
-        msg = 'brigadeiro selecionado tempo: ' + temporizador
-    }else{
-        msg = 'alimento inexistente'
+    if (prato == 'pipoca'){
+        padrao = 10
+        tempo = padrao + tempoExtra
+    }else if(prato == 'macarrao'){
+        padrao = 8
+        tempo = padrao + tempoExtra
+    } else if(prato == 'carne'){
+        padrao = 15
+        tempo = padrao + tempoExtra
+    } else if(prato == 'feijao'){
+        padrao = 12
+        tempo = padrao + tempoExtra
+    } else if(prato == 'brigadeiro'){
+        padrao = 8
+        tempo = padrao + tempoExtra
+    } else {
+        padrao = 0
     }
 
-    let msg2
+    let msg = ''
 
-    if ((temporizador > (alimento * 2) && (temporizador < (alimento * 3)) && (msg != 'alimento inexistente'))) {
-        msg2 = 'alimento queimou 🔥'
-    }
-    else if ((temporizador < alimento) && (msg != 'alimento inexistente')){
-        msg2 = 'tempo insuficiente ⌚'
-    }
-    else if ((temporizador > (alimento * 3)) && (msg != 'alimento inexistente')){
-        msg2 = 'KABUUUM 💣'
-    }
-    else if (msg == 'alimento inexistente') {
-        msg2 = '⏸️ fim do ciclo! no cardápio principal, tente uma das opções: pipoca, macarrao, carne, feijao, brigadeiro'
-    }else if (msg != 'alimento inexistente') {
-        msg2 = 'alimento pronto, bom apetite 😋'
+    if(tempo > (padrao * 2)){
+        msg = 'Comida queimou'
+    }else if(tempo < padrao){
+        msg = 'tempo insuficiente'
+    }else if(padrao == 0){
+        msg = 'prato inexistente'
+    }else if(tempo > (padrao * 3)){
+        msg = 'kabum!'
     }
 
-    return msg + " | " + msg2
+    return msg + 'Prato pronto, bom apetite!'
+
 }
 
-// Modelo de exc. da função
-// funcao('nome do item', tempo extra)
-// funcao(string, integer)
 
-// teste com retorno queimou meuMicroOndas('macarrao', 10)
-// teste com retorno pronto  meuMicroOndas('macarrao', 1)
-// teste com retonro alimento inexistente meuMicroOndas('batatinha', 0)
-
-console.log(meuMicroOndas('macarrao', 18))
+console.log(meuMicroOndas('feijao', 18))
